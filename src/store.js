@@ -5,6 +5,7 @@ import favorites from './reducers/favorites'
 import favorite from './reducers/favorite'
 import search from './reducers/search'
 import { SET_FAVORITES } from './constants'
+
 const store = createStore(
   combineReducers({
     app,
