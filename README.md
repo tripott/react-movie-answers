@@ -1,5 +1,128 @@
-# Favorite Movies App
+# Favorite Movies React/Redux Tutorial
 
+## Setup
+
+```
+git clone https://github.com/jrs-innovation-center/movie-favorites-2.git movie-favorites
+cd movie-favorites
+npm install
+npm start
+```
+
+* Open editor to movie favorites
+* Open Readme
+
+---
+
+## Step 1 - List Favorite Movies
+
+On the Home page component use `map` to list all of the
+favorite movies in the redux store state `favorites`.
+
+---
+
+## Step 2 - Show each favorite when clicked.
+
+On the Show page component use `componentDidMount` to load the favorite movie from the route params id into the favorite state. Then in the render function present the
+the favorite movie using the MovieCard Component and the favorite state.
+
+---
+
+## Step 3 - Add a new favorite to state
+
+On the form component we want to enable the
+user to create a new movie favorite and
+add it to the favorites list.
+
+---
+
+## Step 4 - Search for a movie via omdbapi
+
+On the new form, create a button called search, when clicked route to the search
+component to allow the user to find and
+select the movie from the movie database.
+Take the selection and apply to the new
+favorite model and redirect back to the
+form component.
+
+---
+
+## Step 5 - Persist Movie Favorite Data
+to local api
+
+Using the store.dispatch, redux thunk and fetch we want to
+get our favorites from the localhost:4000/favorites api when the
+app starts.
+
+---
+
+## Step 6 - Refactor Add Movie Favorite to API
+
+On the form component we want to send the
+new favorite to the api on localhost:4000/favorites. Using fetch, and
+redux thunk and dispatch.
+
+---
+
+## Step 7 - Edit the Movie favorite rank
+
+Create a new page component called edit-rank.js
+in the pages folder, connect the edit page
+via routing on the show movie favorite. Then
+allow the user to edit the rank of the selected movie, by loading the favorite on
+component did mount and saving the movie to the api on submit.
+
+---
+
+## Step 8 - Remove the Movie Favorite
+
+On the show movie favorite page add a remove button, that prompts the user `are you sure?`.
+If answer is true then use fetch to remove the
+favorite from the api and state.
+
+---
+
+## Step 9 - Sort Movie Favorite List by rank
+
+Add the movie rank to the list and sort by rank
+using the ramda sortBy function. Make sure the
+sort is by value and not lexical.
+
+---
+
+## Step 10 - Add a favorite search filter
+
+On the home component we want to add the ability to search for favorite movies and dynamically filter the list of favorites by
+the search criteria.
+
+---
+
+## Step 11 - Only show the top 10 with a more button, when pressed show more.
+
+Default the initial view to the top 10 movie favorites, but add a more button to display
+more movie favorites 10 at a time.
+
+---
+
+## Step 12 - Add imdbRating to movie favorite.
+
+We want to create a script, that will go and
+add the imdbRating to all the current favorites in the api. Then we want to add the
+ability to get the ratings via the search movie feature.
+
+---
+
+## Step 13 - Add plot and actors to movie favorite document.
+
+Create a script to iterate through all movie favorites and add the plot and actors to the
+movie favorite, then in the search, any new
+movie favorite add the plot and actors.
+
+---
+
+## Extra features
+
+Spend time thinking about extra features to add. Try to add two useful features.
 
 
 # FROM: JRS React Starter Kit
