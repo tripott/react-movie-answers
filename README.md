@@ -12,6 +12,9 @@ npm start
 * Open editor to movie favorites
 * Open Readme
 
+> Create a branch for each step and check in
+you progress for each step to that branch.
+
 ---
 
 ## Step 1 - List Favorite Movies
