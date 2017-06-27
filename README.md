@@ -1,4 +1,8 @@
-# JRS React Starter Kit
+# Favorite Movies App
+
+
+
+# FROM: JRS React Starter Kit
 
 This starter kit is only for JRS Coding School
 Students to get their tutorial projects up and

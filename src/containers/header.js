@@ -4,7 +4,7 @@ import Title from '../components/title'
 
 const Header = function(props) {
   return (
-    <header className="pa4 bg-black-80 white-60 avenir">
+    <header className="ph4 pv1 bg-purple white-60 avenir">
       <Title>{props.app.title}</Title>
     </header>
   )
