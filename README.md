@@ -22,11 +22,15 @@ you progress for each step to that branch.
 On the Home page component use `map` to list all of the
 favorite movies in the redux store state `favorites`.
 
+19 min
 ---
 
 ## Step 2 - Show each favorite when clicked.
 
-On the Show page component use `componentDidMount` to load the favorite movie from the route params id into the favorite state. Then in the render function present the
+On the Show page component use `componentDidMount` to load the favorite movie from the route params id into the favorite state. 
+
+
+Then in the render function present the
 the favorite movie using the MovieCard Component and the favorite state.
 
 ---
