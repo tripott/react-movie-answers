@@ -8,9 +8,13 @@ import {
 } from 'jrs-react-components'
 import LinkButton from '../components/link-button'
 import { connect } from 'react-redux'
-import { map, sortBy, compose, prop } from 'ramda'
+import { map } from 'ramda'
 
-const Home = function(props) {
+
+class Home2 extends React.Component {
+
+
+
   function li(fav) {
     return (
       <ImageListItem
@@ -23,7 +27,7 @@ const Home = function(props) {
     )
   }
 
-  //console.log('props.favorites', JSON.stringify(props.favorites))
+  console.log('props.favorites', JSON.stringify(props.favorites))
 
   return (
     <div>
@@ -35,12 +39,7 @@ const Home = function(props) {
               title="Add New Favorite"
               link={<LinkButton to="/new">Add</LinkButton>}
             />
-            {compose(map(li), sortBy(compose(Number, prop('rank'))))(
-              props.favorites
-            )
-
-            //map(li, props.favorites)
-            }
+            {map(li, props.favorites)}
           </List>
         </div>
       </main>
@@ -56,7 +55,7 @@ function mapStateToProps(state) {
   }
 }
 
-export default connector(Home)
+export default connector(Home2)
 
 function openDocs(e) {
   if (/localhost/.test(window.location.href)) {

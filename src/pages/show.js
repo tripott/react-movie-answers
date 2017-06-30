@@ -5,8 +5,8 @@ import BigButton from '../components/big-button'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { filter, head } from 'ramda'
-import { SET_FAVORITE } from '../constants'
-
+import { SET_FAVORITE, DELETE_FAVORITE, CLEAR_FAVORITE } from '../constants'
+//import { Button } from 'jrs-react-components'
 // function propEquals(property, value) {
 //   return function(fav) {
 //     console.log('id', value)
@@ -28,11 +28,12 @@ class Show extends React.Component {
     const favorite = head(
       filter(propEquals(this.props.match.params.id), this.props.favorites)
     )
-    console.log(favorite)
+
     this.props.dispatch({ type: SET_FAVORITE, payload: favorite })
   }
   render() {
     const props = this.props
+    console.log('favorites: ', JSON.stringify(props.favorites))
     return (
       <div>
         <Header />
@@ -47,13 +48,49 @@ class Show extends React.Component {
           <div className="mw6 tc center">
             <Link to="/"><BigButton>Return</BigButton></Link>
           </div>
+          <div className="mw6 tc center">
+            <Link to={`/edit/${props.favorite.id}`}>
+              <BigButton>Edit</BigButton>
+            </Link>
+          </div>
+          <div className="mw6 tc center">
+            <BigButton onClick={props.handleDelete(props.history)}>
+              Delete
+            </BigButton>
+          </div>
         </main>
       </div>
     )
   }
 }
 
-const connector = connect(mapStateToProps)
+const connector = connect(mapStateToProps, mapActionsToProps)
+
+const deleteFavorite = history => (dispatch, getState) => {
+  const favorite = getState().favorite
+  const url = `${process.env.REACT_APP_API}/favorites/${favorite.id}`
+  fetch(url, {
+    method: 'DELETE'
+  })
+    .then(res => res.json())
+    .then(fav => dispatch({ type: DELETE_FAVORITE, payload: favorite }))
+
+  dispatch({
+    type: CLEAR_FAVORITE
+  })
+  history.push('/')
+}
+
+function mapActionsToProps(dispatch) {
+  return {
+    dispatch,
+    handleDelete: history => event => {
+      window.confirm('R U Sure?')
+        ? dispatch(deleteFavorite(history))
+        : console.log('Not Handling Delete.')
+    }
+  }
+}
 
 function mapStateToProps(state) {
   return {

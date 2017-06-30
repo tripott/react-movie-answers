@@ -119,6 +119,7 @@ function mapActionsToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
+  console.log('What is state?', state)
   return {
     favorite: state.favorite
   }
